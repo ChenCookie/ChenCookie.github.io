@@ -124,9 +124,12 @@
         height: 100%;
         top: 0;
         left: 0;
-        background: var(--bs-dark);
+        background: #7AB2B2;
         z-index: -1;
     }
+}
+.container-fluid .col-lg-3 .bg-dark {
+    background-color: #7AB2B2 !important;
 }
 
 @media (max-width: 991px) {
