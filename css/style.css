@@ -374,6 +374,60 @@
 }
 /*** service End ***/
 
+/* Publication item styles (used in Publications section) */
+.publication-item .pub-thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.publication-item .pub-thumb img {
+    max-width: 220px; /* adjust as needed */
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background: #f8f9fa;
+    padding: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.publication-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+.pub-authors {
+    color: #444;
+}
+.pub-links .btn {
+    margin-right: 0.5rem;
+    border-radius: 999px; /* pill */
+    padding: .35rem .9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    transition: transform .08s ease, box-shadow .12s ease;
+}
+.pub-links .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.pub-links .btn .fa-fw {
+    width: 1em;
+}
+
+/* Award badge styling used next to publication titles */
+.award-badge {
+    font-size: .9rem;
+    padding: .25rem .5rem;
+    border-radius: 999px;
+    font-weight: 700;
+    text-transform: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    vertical-align: middle;
+}
+.award-badge.bg-success {
+    background-color: #198754 !important; /* Bootstrap success fallback */
+    color: #fff !important;
+}
+
+
 
 /*** Portfolio Start ***/
 .portfolio-content .portfolio-item .portfolio-img {
