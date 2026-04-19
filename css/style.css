@@ -120,7 +120,8 @@
     .container-fluid::before {
         content: "";
         position: absolute;
-        width: 15%;
+        /* match the left column width (Bootstrap col-lg-3 = 25%) to avoid gaps */
+        width: 20%;
         height: 100%;
         top: 0;
         left: 0;
@@ -380,14 +381,68 @@
     align-items: center;
     justify-content: center;
 }
-.publication-item .pub-thumb img {
-    max-width: 220px; /* adjust as needed */
-    width: 100%;
+publication-item .pub-thumb img {
+    /* let the image scale down on small screens but not stretch */
+    max-width: 100%;
+    width: auto;
     height: auto;
     border-radius: 8px;
     background: #f8f9fa;
     padding: 6px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+@media (min-width: 992px) {
+    .publication-item .col-lg-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .publication-item .col-lg-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+    /* set a uniform thumbnail width on desktop */
+    .publication-item .pub-thumb img {
+        width: 180px; /* change this value to the target uniform width */
+        max-width: none;
+    }
+}
+.publication-item .pub-thumb a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    cursor: zoom-in; /* indicates click-to-zoom */
+}
+.publication-item .pub-thumb a img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 240ms ease, filter 180ms ease;
+    will-change: transform;
+}
+.publication-item .pub-thumb a:hover img {
+    transform: scale(1.06);
+    filter: brightness(0.9);
+}
+.publication-item .pub-thumb a::after {
+    /* uses Font Awesome; project already includes FA */
+    content: "\f002"; /* fa-search */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: rgba(255,255,255,0.95);
+    background: rgba(0,0,0,0.22);
+    opacity: 0;
+    transition: opacity 180ms ease, transform 240ms ease;
+    pointer-events: none;
+}
+.publication-item .pub-thumb a:hover::after {
+    opacity: 1;
 }
 .publication-title {
     font-size: 1.4rem;
